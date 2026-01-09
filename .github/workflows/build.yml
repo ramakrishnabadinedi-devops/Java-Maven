@@ -31,5 +31,7 @@ jobs:
           push: true
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/my-nginx:${{ github.sha }}
-            ${{ secrets.DOCKER_USERNAME }}/my-nginx:latest  
+            ${{ secrets.DOCKER_USERNAME }}/my-nginx:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
       
