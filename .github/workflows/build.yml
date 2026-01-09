@@ -16,7 +16,7 @@ jobs:
           distribution: temurin
           java-version: 21
       - name: mvn commands
-        run : mvn clean test
+        run : mvn clean test package
       - name: mvn version
         run : mvn -v
         
