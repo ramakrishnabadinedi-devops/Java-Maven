@@ -1,0 +1,23 @@
+name: Sample demo file.
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v6
+      - name: set up java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 11
+      - name: mvn commands
+        run : mvn -v
+      - name: mvn version
+        run : mvn -v
+        
+      
