@@ -1,13 +1,11 @@
+# Use the official NGINX image as the base image, using the smaller 'alpine' variant
 FROM nginx:alpine
 
-# Remove default nginx static content
-RUN rm -rf /usr/share/nginx/html/*
+# Copy your custom index.html file into the default NGINX web root directory
+COPY index.html /usr/share/nginx/html/index.html
 
-# Copy your static website files
-COPY /html /usr/share/nginx/html/
-
-# Expose HTTP port
+# The default NGINX configuration already exposes port 80 and runs the server in the foreground,
+# so no EXPOSE or CMD commands are strictly necessary for basic use, but they can be included
+# for clarity or if the base image changes its default behavior.
 EXPOSE 80
-
-# Start NGINX
 CMD ["nginx", "-g", "daemon off;"]
